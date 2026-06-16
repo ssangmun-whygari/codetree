@@ -28,24 +28,13 @@ public class Main {
             }
 
             if (arr[1] - arr[0] < arr[2] - arr[1]) {
-                int a = arr[0];
-                int b = arr[1];
-                int c = arr[2];
-                // b와 c 사이에 끼워넣는다.
-                a = b + 1;
-                arr[0] = b;
-                arr[1] = a;
-                arr[2] = c;
+                // 1과 2 사이에 끼워넣는다.
+                arr[0] = arr[1];
+                arr[1] = arr[0] + 1;
             } else if (arr[1] - arr[0] > arr[2] - arr[1]) {
-                int a = arr[0];
-                int b = arr[1];
-                int c = arr[2];
-
-                // a와 b 사이에 끼워넣는다.
-                c = a + 1;
-                arr[0] = a;
-                arr[1] = c;
-                arr[2] = b;
+                // 0과 1 사이에 끼워넣는다.
+                arr[2] = arr[1];
+                arr[1] = arr[0] + 1;
             }
             cnt++;
         }
