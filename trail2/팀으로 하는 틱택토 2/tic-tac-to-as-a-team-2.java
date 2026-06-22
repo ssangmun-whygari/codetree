@@ -24,30 +24,22 @@ public class Main {
         int ans = 0;
         for (int i = 1; i <= 9; i++) {
             for (int j = i + 1; j <= 9; j++) {
-
                 boolean victory = false;
                 for (int[] c : cases) {
-                    boolean[] selected = new boolean[10]; // 1 ~ 9
+                    int iNum = 0, jNum = 0;
                     for (int idx : c) {
                         int x = (idx / 3);
                         int y = (idx % 3);
                         int member = board[x][y];
-                        selected[member] = true;
+                        if (member == i) iNum++;
+                        if (member == j) jNum++;
                     }
-                    int selectedNum = 0;
-                    for (int k = 0; k < selected.length; k++) {
-                        if (selected[k]) selectedNum++;
-                    }
-                    if (selectedNum == 2 && selected[i] && selected[j]) {
-                        // System.out.println("i: " + i + ",j: " + j + ",c: " + Arrays.toString(c));
+                    if (iNum > 0 && jNum > 0 && iNum + jNum == 3) {
                         victory = true;
                         break;
                     }
                 }
-
-                if (victory) {
-                    ans++;
-                }
+                if (victory) ans++;
             }
         }
 
